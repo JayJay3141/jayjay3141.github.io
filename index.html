@@ -31,16 +31,22 @@
     <title></title>
 </head>
 <body>
-//leave me alone
-<input id="magischeBox" type="text" onchange="eyNichtMitlesen()" value="Atra Gülai un Ilian tauthr ono un atra ono Waíse skölir frá Rauthr. " autocomplete="off" class="etwasWasDichVerwirrt"/>
+<!--leave me alone-->
+<input id="magischeBox" type="text" oninput="eyNichtMitlesen()" value="Atra Gülai un Ilian tauthr ono un atra ono Waíse skölir frá Rauthr. " autocomplete="off" class="etwasWasDichVerwirrt"/>
 
 <script>
     function eyNichtMitlesen() {
         const deineAntwort_fuerJedenLesbar = document.getElementById('magischeBox').value
-        const kauderwelsch = sha256_ha_damit_hast_du_nicht_gerechnet(deineAntwort_fuerJedenLesbar);
-        alert(kauderwelsch);
-        alert(sha384_first10(deineAntwort_fuerJedenLesbar))
-        if(kauderwelsch==="test") window.location.href = "https://www.jayjay.eu/site2";
+        sha256_ha_damit_hast_du_nicht_gerechnet(deineAntwort_fuerJedenLesbar).then(
+            function(kauderwelsch) {
+                alert(kauderwelsch);
+                sha384_first10(deineAntwort_fuerJedenLesbar).then(
+                    function (output) {alert(output);}
+                )
+                if(kauderwelsch==="test") window.location.href = "https://www.jayjay.eu/site2";
+            },
+            function(error) {console.log(error)}
+        );
     }
 
     async function sha256_ha_damit_hast_du_nicht_gerechnet(byebye) {
