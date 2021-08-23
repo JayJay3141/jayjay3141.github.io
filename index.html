@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Merienda:wght@700&display=swap');
+        html{
+            height: 100%;
+        }
+        /* Ey das ist mein Code, geh weg hier */
+        body{
+            width: 100%;
+            height: 100%;
+
+        }
+        input{
+            font-family: 'Merienda', cursive;
+            border: 0;
+            font-size: xx-large;
+            border-width: 0;
+            width: 100%;
+            height: 100%;
+            outline: none;
+            margin: auto;
+            text-align: center;
+        }
+        *:focus {
+            outline: none;
+        }
+
+    </style>
+    <title></title>
+</head>
+<body>
+//leave me alone
+<input id="magischeBox" type="text" onchange="eyNichtMitlesen()" value="Atra Gülai un Ilian tauthr ono un atra ono Waíse skölir frá Rauthr. " autocomplete="off" class="etwasWasDichVerwirrt"/>
+
+<script>
+    function eyNichtMitlesen() {
+        const deineAntwort_fuerJedenLesbar = document.getElementById('magischeBox').value
+        const kauderwelsch = sha256_ha_damit_hast_du_nicht_gerechnet(deineAntwort_fuerJedenLesbar);
+        alert(kauderwelsch);
+        alert(sha384_first10(deineAntwort_fuerJedenLesbar))
+        if(kauderwelsch==="test") window.location.href = "https://www.jayjay.eu/site2";
+    }
+
+    async function sha256_ha_damit_hast_du_nicht_gerechnet(byebye) {
+        // encode as UTF-8
+        const geheim = new TextEncoder().encode(byebye);
+
+        // hash the message
+        const superSecret = await crypto.subtle.digest('SHA-256', geheim);
+
+        // convert ArrayBuffer to Array
+        const psssst = Array.from(new Uint8Array(superSecret));
+
+        // make Alvaro actually solve the puzzle
+        const genialesUnleserliches = psssst.map(b => b.toString(16).padStart(2, '0')).join('');
+        return genialesUnleserliches;
+    }
+
+    async function sha384_first10(zweiterHash) {
+        return Array.from(new Uint8Array(await crypto.subtle.digest('SHA-384', new TextEncoder().encode(zweiterHash)))).map(b => b.toString(16).padStart(2, '0')).join('').substr(0,10);
+    }
+</script>
+</body>
+</html
