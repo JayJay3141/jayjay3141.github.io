@@ -39,11 +39,11 @@
         const deineAntwort_fuerJedenLesbar = document.getElementById('magischeBox').value
         sha256_ha_damit_hast_du_nicht_gerechnet(deineAntwort_fuerJedenLesbar).then(
             function(kauderwelsch) {
-                alert(kauderwelsch);
                 sha384_first10(deineAntwort_fuerJedenLesbar).then(
-                    function (output) {alert(output);}
+                    function (output) {
+                        if(kauderwelsch==="0d9c3674396cdcf557b24db2cb77589e0368aa6c796373958875213537c33644") window.location.href = "https://www.jayjay.eu/"+output;
+                    }
                 )
-                if(kauderwelsch==="test") window.location.href = "https://www.jayjay.eu/site2";
             },
             function(error) {console.log(error)}
         );
