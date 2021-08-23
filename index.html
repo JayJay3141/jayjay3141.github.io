@@ -28,13 +28,14 @@
         }
 
     </style>
-    <title></title>
+    <title>Schnitzeljagd</title>
 </head>
 <body>
 <!--leave me alone-->
 <input id="magischeBox" type="text" oninput="eyNichtMitlesen()" value="Atra Gülai un Ilian tauthr ono un atra ono Waíse skölir frá Rauthr. " autocomplete="off" class="etwasWasDichVerwirrt"/>
 
 <script>
+    document.getElementById('magischeBox').focus();
     function eyNichtMitlesen() {
         const deineAntwort_fuerJedenLesbar = document.getElementById('magischeBox').value
         sha256_ha_damit_hast_du_nicht_gerechnet(deineAntwort_fuerJedenLesbar).then(
